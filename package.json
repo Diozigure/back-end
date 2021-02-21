@@ -4,20 +4,22 @@
   "description": "projet open innovation 2021",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Diozigure/acces_sucurise.git"
+    "url": "git+https://github.com/Diozigure/back-end.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Diozigure/acces_sucurise/issues"
+    "url": "https://github.com/Diozigure/back-end/issues"
   },
-  "homepage": "https://github.com/Diozigure/acces_sucurise#readme",
+  "homepage": "https://github.com/Diozigure/back-end#readme",
   "dependencies": {
     "dotenv": "^8.2.0",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "mongoose": "^5.11.15"
   }
 }
