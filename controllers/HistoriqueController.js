@@ -15,18 +15,22 @@ historiqueController.findByBoitier = async (req, res, next) => {
             data: historique
         });
     } catch(err) {
-        next(err);
+        res.status(500).json({error: err.message});
     }
 }
 
 historiqueController.addHistorique = async (req, res, next) => {
     try {
-        const historique = await Historique.findOneAndUpdate({boitierId: req.params.boitierId}, { $push: {historique: req.body}}, {new: true, upsert: true});
-        res.status(200).json({
-            data: historique
-        });
+        const {userId, date, message} = req.body;
+        const query = {boitierId: req.params.boitierId};
+        const update = {$push: {historique: {userId, date, message}}};
+        const options = {new: true, upsert: true};
+
+        const historique = await Historique.findOneAndUpdate(query, update, options);
+
+        res.status(200).json({data: historique});
     } catch(err) {
-        next(err);
+        res.status(500).json({error: err.message});
     }
 }
 
@@ -44,7 +48,7 @@ historiqueController.delete = async (req, res, next) => {
             message: 'Historique: ' + historique._id + ' was deleted.'
         });
     } catch(err) {
-        next(err);
+        res.status(500).json({error: err.message});
     }
 }
 
