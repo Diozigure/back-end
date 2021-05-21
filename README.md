@@ -8,7 +8,7 @@ Les données sont stockés en NoSQL avec MongoDB
 ### Checkout github
 ```
 git init
-git remote add origin https://github.com/Diozigure/MSPR-SHOP.git
+git remote add origin https://github.com/Diozigure/back-end.git
 git pull origin main
 ```
 ### Installer les dépendances node
