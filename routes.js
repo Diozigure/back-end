@@ -1,9 +1,9 @@
-const database = require('./database')
+//const database = require('./init_database')
 
-const router = require('express').Router()
-const userController = require('./controllers/UserController')
-const boitierController = require('./controllers/BoitierController')
-const historiqueController = require('./controllers/HistoriqueController')
+//const router = require('express').Router()
+/*const userController = require('./controllers/User.controller')
+const boitierController = require('./controllers/Boitier.controller')
+const historiqueController = require('./controllers/Historique.controller')
 const auth = require('./auth');
 
 router.get('/users', auth.verifyToken, auth.adminAccess, userController.getAll);
@@ -24,5 +24,5 @@ router.delete('/boitier/:boitierId', boitierController.delete);
 router.get('/historique/:boitierId', historiqueController.findByBoitier);
 router.put('/historique/:boitierId', historiqueController.addHistorique);
 router.delete('/historique/:boitierId', historiqueController.delete);
-
-module.exports = router
+*/
+//module.exports = router

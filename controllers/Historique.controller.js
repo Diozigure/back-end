@@ -1,4 +1,4 @@
-const Historique = require('../models/Historique')
+const Historique = require('../models/Historique.model')
 const historiqueController = {}
 
 historiqueController.findByBoitier = async (req, res, next) => {
