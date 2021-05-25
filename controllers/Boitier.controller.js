@@ -194,6 +194,28 @@ removeUser = async (req, res, next) => {
     }
 }
 
+openAuth = async (req, res, next) => {
+    try {
+        if(!req.params || !req.params.code) throw httpError.BadRequest();
+        const code = req.params.code;
+
+        if(!req.user || !req.user.id) throw httpError.BadRequest();
+        const connectedUserId = req.user.id;
+        
+        const boitier = await Boitier.findOne({code: code});
+        if(!boitier) throw httpError.NotFound('Boitier not found');
+
+        if(!boitier.authorization.some(e => connectedUserId ==e.userId)) throw httpError.Unauthorized();
+        
+        return res.status(200).json({
+            data: null,
+            message: 'Authorisation successful'
+        });
+    } catch(err) {
+        next(err);
+    }
+}
+
 module.exports = {
     getAll,
     create,
@@ -202,5 +224,6 @@ module.exports = {
     remove,
     getUser,
     addUser,
-    removeUser
+    removeUser,
+    openAuth
 };

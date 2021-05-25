@@ -11,5 +11,6 @@ router.delete('/:code', authorize(Roles.Admin), BoitierController.remove);
 router.get('/:code/right', authorize(), BoitierController.getUser);
 router.post('/:code/right', authorize(), BoitierController.addUser);
 router.delete('/:code/right', authorize(), BoitierController.removeUser);
+router.get('/:code/open', authorize(), BoitierController.openAuth);
 
 module.exports = router;
