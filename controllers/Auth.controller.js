@@ -57,9 +57,10 @@ login = async (req, res, next) => {
 
 refreshToken = async (req, res, next) => {
     try {
+        
         const {refreshToken} = req.body;
+        console.log(refreshToken);
         if(!refreshToken) throw httpError.BadRequest();
-
         const userId = await AuthUtils.verifyRefreshToken(refreshToken);
         if(!userId) throw httpError.Unauthorized();
         
